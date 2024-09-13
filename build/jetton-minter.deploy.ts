@@ -15,11 +15,11 @@ const SNAKE_PREFIX = 0x00;
 // - Data is stored on-chain (except for the image data itself)
 // - Owner should usually be the deploying wallet's address.
 const jettonParams = {
-  owner: Address.parse("UQCBbo7Av6lhDnctDJbz4rzjRFw_fGnMMx13zc0Gyt9Tmhj4"),
+  owner: Address.parse("UQC3g2iFODd2C3Bk92IUoytLkuguckaY2bV2NePH9IBvU6iR"),
   name: "COPA",
   symbol: "COPA",
-  image: "https://www.linkpicture.com/q/download_183.png", // Image url
-  description: "Build, play, earn, and own your assets in the exciting Web3 world of Coco Park.",
+  image: "https://s3.ap-southeast-1.amazonaws.com/static.cocopark/cocopark-dapp/logo.jpg", // Image url
+  description: "Hatch, raise, and battle your own adorable NFT crocodiles in CoCo Park!",
 };
 
 export type JettonMetaDataKeys = "name" | "description" | "image" | "symbol";
@@ -122,7 +122,7 @@ export function jettonMinterInitData(
   metadata: { [s in JettonMetaDataKeys]?: string }
 ): Cell {
   return beginCell()
-    .storeCoins(0)
+    .storeCoins(new BN('88888888000000000000'))
     .storeAddress(owner)
     .storeRef(buildTokenMetadataCell(metadata))
     .storeRef(JETTON_WALLET_CODE)
